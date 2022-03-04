@@ -26,7 +26,7 @@ export class DataService {
 
   constructor(private data:DataServiceContacto) { }
 
-  public getMessages():Observable< Contacto[]> {
+  public getContactos():Observable< Contacto[]> {
 
 
     return this.data.getContactos();

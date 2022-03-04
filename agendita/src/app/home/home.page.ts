@@ -15,7 +15,7 @@ export class HomePage implements OnInit{
   
   
   ngOnInit(): void {
-    this.getMessages();
+    this.getContactos();
   }
 
   
@@ -27,10 +27,18 @@ export class HomePage implements OnInit{
     }, 3000);
   }
 
-  getMessages() {
+  getContactos() {
 
 
-    return this.data.getMessages().subscribe;
+    return this.data.getContactos().subscribe({
+
+      next: resp => { 
+       console.log(resp)
+       this.contactos=resp;
+      },
+      error: error =>{
+      }
+  });
   }
 
 

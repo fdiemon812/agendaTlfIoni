@@ -21,7 +21,7 @@
   
   <ion-list>
     <!-- [message]="message" -->
-    <app-message *ngFor="let message of contactos" ></app-message>
+    <app-message *ngFor="let contacto of contactos" [contacto]="contacto"></app-message>
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">

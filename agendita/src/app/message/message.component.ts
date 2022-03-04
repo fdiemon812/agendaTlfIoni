@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Message } from '../services/data.service';
 
 @Component({
@@ -7,14 +8,20 @@ import { Message } from '../services/data.service';
   styleUrls: ['./message.component.scss'],
 })
 export class MessageComponent implements OnInit {
-  @Input() message: Message;
+  @Input() contacto: any;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {}
 
   isIos() {
     const win = window as any;
     return win && win.Ionic && win.Ionic.mode === 'ios';
+  }
+
+
+  entrarContacto(id:number){
+
+    this.router.navigate(["/message", id]);
   }
 }
