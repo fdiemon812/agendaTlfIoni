@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Contacto, DataServiceContacto } from '../data.service';
 import { DataService, Message } from '../services/data.service';
@@ -14,7 +14,8 @@ export class ViewMessagePage implements OnInit {
 
   constructor(
     private data: DataServiceContacto,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -23,9 +24,12 @@ export class ViewMessagePage implements OnInit {
   }
 
   getBackButtonText() {
-    const win = window as any;
-    const mode = win && win.Ionic && win.Ionic.mode;
-    return mode === 'ios' ? 'Inbox' : '';
+
+    this.router.navigate(["/home"]);
+
+    // const win = window as any;
+    // const mode = win && win.Ionic && win.Ionic.mode;
+    // return mode === 'ios' ? 'Inbox' : '';
   }
 
 
@@ -42,4 +46,19 @@ export class ViewMessagePage implements OnInit {
       }
   });
   }
+
+
+  updateContacto(){
+// terminar
+    this.data.updateContacto(this.contacto);
+    this.router.navigate(["/home"])
+
+  }
+
+  borrarContacto(){
+    // terminar
+        this.data.deleteContacto(this.contacto);
+        this.router.navigate(["/home"])
+    
+      }
 }

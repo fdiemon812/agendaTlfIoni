@@ -2,9 +2,12 @@
 
 
 
-  <ion-label href="tlf:contacto.tlf" class="ion-text-wrap" style="margin-left: 10px;">
+  <ion-label   class="ion-text-wrap" style="margin-left: 10px;">
+    <a with="100%" href="tlf:+{{contacto.tlf}}" style="text-decoration: none;color: white;">
     
-    <p>{{contacto.nombre}} {{contacto.apellidos}}</p>
+
+      <p>{{contacto.nombre}} {{contacto.apellidos}}</p>
+    </a>
   </ion-label>
 
   <span (click)="entrarContacto(contacto.id)" style="margin-left: 5px ">

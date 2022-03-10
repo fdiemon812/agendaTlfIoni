@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
+      <ion-back-button (click)="getBackButtonText()" defaultHref="/"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -14,18 +14,61 @@
         <span class="date">
         </span>
       </h2>
-      <h3>To: <ion-note>Me</ion-note></h3>
+      <h3>Contacto: </h3>
     </ion-label>
   </ion-item>
   
-  <div class="ion-padding">
-    <ion-input value="contacto.nombre" [(ngModel)]=contacto.nombre placeholder="Nombre"></ion-input>
+  <div class="ion-padding" *ngIf="contacto">
+  
+  
+  <div style="display: flex;">
 
+    <ion-label color="secondary">      Nombre:     </ion-label>
+    <ion-input  value="contacto.nombre" [(ngModel)]=contacto.nombre placeholder="Nombre"></ion-input>
+  </div>
+
+
+  
+  
+  <div style="display: flex;">
+    
+    <ion-label color="secondary">      Apellidos:     </ion-label>
     <ion-input [(ngModel)]=contacto.apellidos placeholder="Apellidos"></ion-input>
+  </div>
+  
+  
+  <div style="display: flex;">
     
-    
+    <ion-label color="secondary">      Tlf:     </ion-label>
     <ion-input [(ngModel)]=contacto.tlf placeholder="Telefono"></ion-input>
-    
+  </div>
+  
+  <div style="display: flex;">
+
+    <ion-label color="secondary">      Email:     </ion-label>
     <ion-input [(ngModel)]=contacto.email placeholder="Email"></ion-input>
   </div>
+
+    
+    
+    
+  </div>
+
+
+  <ion-button (click)="updateContacto()" style="width: 100%;">
+
+    
+GUARDAR
+
+  </ion-button>
+
+  <ion-button color="danger" (click)="borrarContacto()" style="width: 100%;">
+
+    
+    ELIMINAR
+    
+      </ion-button>
+
+
+ 
 </ion-content>

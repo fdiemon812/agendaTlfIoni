@@ -10,7 +10,7 @@ export interface Contacto {
   apellidos:string;
   tlf: string;
   email: string;
-    img:string;
+  img:string;
 }
  
 @Injectable({

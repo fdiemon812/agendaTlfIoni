@@ -4,10 +4,21 @@ import { Routes, RouterModule } from '@angular/router';
 import { ViewMessagePage } from './view-message.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ViewMessagePage
+  // {
+  //   path: '',
+  //   component: ViewMessagePage
+  // }
+  { path: '', children: [
+
+    {
+      path: ':id',
+      component: ViewMessagePage
+    }
+  ]
+    
   }
+
+  
 ];
 
 @NgModule({

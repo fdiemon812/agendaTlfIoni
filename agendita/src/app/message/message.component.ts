@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Contacto } from '../data.service';
 import { Message } from '../services/data.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { Message } from '../services/data.service';
   styleUrls: ['./message.component.scss'],
 })
 export class MessageComponent implements OnInit {
-  @Input() contacto: any;
+  @Input() contacto: Contacto;
 
   constructor(private router:Router) { }
 
@@ -20,7 +21,7 @@ export class MessageComponent implements OnInit {
   }
 
 
-  entrarContacto(id:number){
+  entrarContacto(id:string){
 
     this.router.navigate(["/message", id]);
   }
